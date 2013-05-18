@@ -13,7 +13,6 @@ sub config_template_view {
 
         # PRE_PROCESS is an array ref so the user can extend with Data::Nested
         PRE_PROCESS        => ['crudite_config'],
-        WRAPPER            => 'wrapper.tt',
         ENCODING           => 'utf-8',
         TEMPLATE_EXTENSION => '.tt',
         render_die         => 1,

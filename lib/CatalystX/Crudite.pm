@@ -6,7 +6,7 @@ use CatalystX::Resource v0.6.1;
 use CatalystX::Crudite::Util qw(merge_configs);
 use Web::Library;
 extends 'Catalyst';
-our $VERSION = '0.15';
+our $VERSION = '0.16';
 our @IMPORT  = qw(
   ConfigLoader
   Static::Simple
@@ -50,8 +50,10 @@ sub config_app {
                 },
             },
         },
-        'Controller::Login' =>
-          { login_form_args => { authenticate_username_field_name => 'name' } },
+        'Controller::Login' => {
+            traits          => ['-RenderAsTTTemplate'],
+            login_form_args => { authenticate_username_field_name => 'name' }
+        },
         'Model::DB' => {
             schema_class => "${app_name}::Schema",
             connect_info => {
