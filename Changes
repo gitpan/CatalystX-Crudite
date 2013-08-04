@@ -1,5 +1,9 @@
 Revision history for Perl extension CatalystX-Crudite
 
+0.19  2013-08-04 19:09:39 CEST
+    [Improvements]
+        - Each table gets a uuid column that is automatically set on insert
+
 0.18  2013-08-04 13:38:40 CEST
     [Improvements]
         - Adapted for CatalystX::Resource 0.008001; require that version

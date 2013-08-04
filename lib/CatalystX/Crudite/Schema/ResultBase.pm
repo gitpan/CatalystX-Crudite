@@ -2,7 +2,7 @@ package CatalystX::Crudite::Schema::ResultBase;
 use strict;
 use warnings;
 use parent 'DBIx::Class';
-__PACKAGE__->load_components(qw(TimeStamp Core));
+__PACKAGE__->load_components(qw(UUIDColumns TimeStamp Core));
 
 sub common_setup {
     my $class = shift;
@@ -13,8 +13,12 @@ sub common_setup {
             is_numeric        => 1,
             is_auto_increment => 1
         },
-        created =>
-          { data_type => 'timestamp', default => \'now()', set_on_create => 1 },
+        uuid    => { data_type => 'varchar', is_nullable => 0 },
+        created => {
+            data_type     => 'timestamp',
+            default       => \'now()',
+            set_on_create => 1
+        },
         updated => {
             data_type     => 'timestamp',
             is_nullable   => 1,
@@ -22,6 +26,8 @@ sub common_setup {
             set_on_update => 1
         },
     );
+    $class->uuid_columns('uuid');
+    $class->uuid_class('::Data::UUID');
     $class->set_primary_key('id');
     $class->resultset_attributes({ order_by => 'me.updated' });
 }

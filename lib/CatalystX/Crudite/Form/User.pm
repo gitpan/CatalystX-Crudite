@@ -8,6 +8,12 @@ has_field 'name' => (
     unique   => 1,
     size     => 10,
 );
+has_field uuid => (
+    type     => 'Text',
+    label    => 'UUID',
+    disabled => 1,
+    html_attr => { style => 'width: 350px' },
+);
 has_field 'password' => (
     type     => 'Password',
     required => 1,
@@ -35,6 +41,10 @@ has_field 'roles' => (
     validate_when_empty => 1,
 );
 sub field_list { [ $_[0]->submit_button ] }
+before 'set_active' => sub {
+    my $self = shift;
+    $self->inactive([qw(uuid)]) if $self->is_create_mode;
+};
 
 sub html_edit_with_password {
     my ($self, $field) = @_;

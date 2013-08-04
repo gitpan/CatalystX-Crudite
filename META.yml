@@ -41,7 +41,9 @@ requires:
   DBIx::Class: 0
   DBIx::Class::PassphraseColumn: 0
   DBIx::Class::TimeStamp: 0
+  DBIx::Class::UUIDColumns: 0
   Data::Printer: 0
+  Data::UUID: 0
   File::ShareDir: 0
   File::Slurp: 0
   HTML::FormHandler: 0
@@ -62,6 +64,6 @@ resources:
   bugtracker: https://github.com/marcelgruenauer/CatalystX-Crudite/issues
   homepage: https://github.com/marcelgruenauer/CatalystX-Crudite
   repository: https://github.com/marcelgruenauer/CatalystX-Crudite.git
-version: 0.18
+version: 0.19
 x_contributors:
   - 'Marcel Gruenauer <hanekomu@gmail.com>'
