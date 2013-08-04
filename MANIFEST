@@ -1,5 +1,13 @@
-bin/crudite_starter
+Build.PL
 Changes
+LICENSE
+MANIFEST
+META.json
+META.yml
+README
+bin/crudite_starter
+cpanfile
+dist.ini
 lib/Catalyst/ActionRole/Code.pm
 lib/Catalyst/ActionRole/RejectIfUsed.pm
 lib/Catalyst/ActionRole/RequireSameUser.pm
@@ -17,16 +25,16 @@ lib/CatalystX/Crudite/Test.pm
 lib/CatalystX/Crudite/Util.pm
 lib/CatalystX/Crudite/Util/Random.pm
 lib/CatalystX/Crudite/View/TT.pm
-Makefile.PL
-MANIFEST			This list of files
-MANIFEST.SKIP
-README.md
 share/create/resource/lib/MyApp/Controller/MyResource.pm
 share/create/resource/lib/MyApp/Form/MyResource.pm
 share/create/resource/lib/MyApp/Schema/Result/MyResource.pm
 share/create/resource/root/templates/myresource/edit.tt
 share/create/resource/root/templates/myresource/list.tt
 share/starter/Changes
+share/starter/MANIFEST
+share/starter/MANIFEST.SKIP
+share/starter/Makefile.PL
+share/starter/README
 share/starter/gitignore
 share/starter/lib/MyApp.pm
 share/starter/lib/MyApp/Controller/Root.pm
@@ -39,12 +47,8 @@ share/starter/lib/MyApp/Schema/Result/UserRole.pm
 share/starter/lib/MyApp/Util/Primer.pm
 share/starter/lib/MyApp/Util/Random.pm
 share/starter/lib/MyApp/View/HTML.pm
-share/starter/Makefile.PL
-share/starter/MANIFEST
-share/starter/MANIFEST.SKIP
 share/starter/myapp.conf
 share/starter/myapp.psgi
-share/starter/README
 share/starter/root/favicon.ico
 share/starter/root/static/css/all.css
 share/starter/root/templates/error.tt
@@ -69,5 +73,4 @@ share/starter/test.sh
 share/templates/crudite_config
 share/templates/error.tt
 t/basic.t
-META.yml                                 Module YAML meta-data (added by MakeMaker)
-META.json                                Module JSON meta-data (added by MakeMaker)
+t/release-pod-syntax.t

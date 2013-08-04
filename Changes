@@ -1,5 +1,13 @@
 Revision history for Perl extension CatalystX-Crudite
 
+0.18  2013-08-04 13:38:40 CEST
+    [Improvements]
+        - Adapted for CatalystX::Resource 0.008001; require that version
+
+0.17  2013-08-04 11:41:34 CEST
+    [Improvements]
+        - specify encoding now that Catalyst::Plugin::Unicode::Encoding is core
+
 0.16 Sat May 18 12:08:57 2013 CEST
     [Improvements]
         - Give the user more freedom over his layout: The TT view doesn't

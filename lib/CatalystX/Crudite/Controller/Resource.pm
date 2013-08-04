@@ -28,8 +28,7 @@ sub config_resource_controller {
     my $traits = $args{traits} // [qw(Form Create Edit Delete List Show)];
     my $has_delete_trait = grep { $_ eq 'Delete' } @$traits;
     my %config = (
-        resultset_key => "${plural_key}_rs",
-        resources_key => $plural_key,
+        resultset_key => $plural_key,
         resource_key  => $singular_key,
         form_class    => "${app_name}::Form::${singular_package}",
 

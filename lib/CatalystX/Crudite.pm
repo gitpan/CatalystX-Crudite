@@ -6,11 +6,10 @@ use CatalystX::Resource v0.6.1;
 use CatalystX::Crudite::Util qw(merge_configs);
 use Web::Library;
 extends 'Catalyst';
-our $VERSION = '0.16';
+our $VERSION = '0.18';
 our @IMPORT  = qw(
   ConfigLoader
   Static::Simple
-  Unicode::Encoding
   +CatalystX::Resource
   +CatalystX::SimpleLogin
   Authentication
@@ -31,6 +30,7 @@ sub config_app {
 
         # Disable deprecated behavior needed by old applications
         disable_component_resolution_regex_fallback => 1,
+        encoding                                    => 'UTF-8',
         enable_catalyst_header => 1,    # Send X-Catalyst header
         'Plugin::Static::Simple' =>
           { include_path => [ $library_manager->include_paths ] },
