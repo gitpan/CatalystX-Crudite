@@ -64,6 +64,6 @@ resources:
   bugtracker: https://github.com/marcelgruenauer/CatalystX-Crudite/issues
   homepage: https://github.com/marcelgruenauer/CatalystX-Crudite
   repository: https://github.com/marcelgruenauer/CatalystX-Crudite.git
-version: 0.20
+version: 0.21
 x_contributors:
   - 'Marcel Gruenauer <hanekomu@gmail.com>'

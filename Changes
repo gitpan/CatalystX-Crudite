@@ -1,5 +1,15 @@
 Revision history for Perl extension CatalystX-Crudite
 
+0.21  2014-01-16 17:55:14 CET
+    [Improvements]
+        - share/templates/crudite_config: Datatable columns whose title is the
+          empty string aren't searchable or sortable; use those for columns
+          with action buttons. You can have several of those; previously the
+          title had to be "Actions", which looks strange if you have several
+          such columns. And it's clear from the buttons in those columns that
+          they produce some sort of action.
+        - Also, datatable columns whose title is '*hidden' are hidden.
+
 0.20  2014-01-16 13:42:38 CET
     [Improvements]
         - In config_app(), the user can specify extra args for web libraries

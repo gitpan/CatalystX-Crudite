@@ -48,8 +48,10 @@
                     [%
                         spec = [];
                         FOR column_name IN columns;
-                            IF column_name == "Actions";
+                            IF column_name == "";
                                 spec.push('{ "bSearchable": false, "bSortable": false }');
+                            ELSIF column_name == "*hidden";
+                                spec.push('{ "bSearchable": false, "bVisible": false }');
                             ELSE;
                                 spec.push('null');
                             END;

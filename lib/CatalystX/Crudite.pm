@@ -6,7 +6,7 @@ use CatalystX::Resource v0.6.1;
 use CatalystX::Crudite::Util qw(merge_configs);
 use Web::Library;
 extends 'Catalyst';
-our $VERSION = '0.20';
+our $VERSION = '0.21';
 our @IMPORT  = qw(
   ConfigLoader
   Static::Simple
