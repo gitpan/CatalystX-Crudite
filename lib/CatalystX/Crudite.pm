@@ -6,7 +6,7 @@ use CatalystX::Resource v0.6.1;
 use CatalystX::Crudite::Util qw(merge_configs);
 use Web::Library;
 extends 'Catalyst';
-our $VERSION = '0.19';
+our $VERSION = '0.20';
 our @IMPORT  = qw(
   ConfigLoader
   Static::Simple
@@ -22,10 +22,17 @@ our @IMPORT  = qw(
 sub config_app {
     my ($class, %args) = @_;
     my $app_name        = $args{name};
+    my $crudite_config  = delete $args{'CatalystX::Crudite'} // {};
+
+    # load web libraries
     my $library_manager = Web::Library->instance;
-    $library_manager->mount_library({ name => $_ })
-      for qw(Bootstrap jQuery jQueryUI DataTables);
-    my $share  = dist_dir('CatalystX-Crudite');
+    my @libs = qw(Bootstrap jQuery jQueryUI DataTables);
+    for my $lib (@libs) {
+        my $lib_args = $crudite_config->{web_library}{$lib} // {};
+        $library_manager->mount_library({ name => $lib, %$lib_args });
+    }
+
+    # merge given config with our default config
     my %config = (
 
         # Disable deprecated behavior needed by old applications
@@ -104,6 +111,28 @@ The starter templates are stored as per-dist shared files using
 C<File::ShareDir>, so they can't be found from the uninstalled repository. I
 hope to improve this in a later version.
 
+=head1 CONFIGURATION
+
+The user can specify extra args for web libraries such as specific versions.
+Example:
+
+    __PACKAGE__->config_app(
+        name                     => 'MyApp',
+        'CatalystX::Crudite'     => {
+            web_library => {
+                Bootstrap => { version => '2.3.2' },
+            },
+        },
+        # other standard Catalyst config such as:
+        'Plugin::Static::Simple' => {
+            include_path => [ __PACKAGE__->path_to(qw(root static)), \&dir2 ],
+            ignore_extensions => [qw(tmpl tt tt2 xhtml)]
+        }
+    );
+
+By default the latest versions of the web libraries - Bootstrap, jQuery,
+jQueryUI and DataTables - are laoded.
+
 =head1 AUTHORS
 
 The following person is the author of all the files provided in
@@ -117,7 +146,7 @@ The following copyright notice applies to all the files provided in
 this distribution, including binary files, unless explicitly noted
 otherwise.
 
-This software is copyright (c) 2013 by Marcel Gruenauer.
+This software is copyright (c) 2013-2014 by Marcel Gruenauer.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -1,5 +1,10 @@
 Revision history for Perl extension CatalystX-Crudite
 
+0.20  2014-01-16 13:42:38 CET
+    [Improvements]
+        - In config_app(), the user can specify extra args for web libraries
+          such as specific versions.
+
 0.19  2013-08-04 19:09:39 CEST
     [Improvements]
         - Each table gets a uuid column that is automatically set on insert
